@@ -32,8 +32,8 @@ jobs:
           curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
           sudo bash install-release.sh
           sudo apt purge curl unzip
-          systemctl enable v2ray
-          systemctl start v2ray
+          sudo systemctl enable v2ray
+          sudo systemctl start v2ray
           
       - name: Run proxy tester
         run: |
