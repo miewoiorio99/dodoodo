@@ -9,7 +9,7 @@ CONFIG="/root/v2ray/config.json"
 LOG_FILE="/tmp/v2ray.log"
 PROXY_LIST="/tmp/proxies.txt"
 
-mkdir -p "$(dirname "$CONFIG")"
+mkdir -p /root/v2ray
 
 echo "[+] Downloading Base64 list..."
 curl -fsSL "$LIST_URL" -o "$RAW_FILE"
