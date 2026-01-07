@@ -5,7 +5,7 @@ set -euo pipefail
 LIST_URL="https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_BASE64.txt"
 RAW_FILE="/tmp/v2ray_raw.txt"
 DECODED_FILE="/tmp/v2ray_decoded.txt"
-CONFIG="$HOME/v2ray/config.json"
+CONFIG="/usr/local/etc/v2ray/config.json"
 LOG_FILE="/tmp/v2ray.log"
 PROXY_LIST="/tmp/proxies.txt"
 
@@ -34,8 +34,7 @@ test_proxy() {
 
 restart_v2ray() {
   echo "[+] Restarting V2Ray..."
-  pkill v2ray 2>/dev/null || true
-  ~/v2ray/v2ray -config "$CONFIG" >"$LOG_FILE" 2>&1 &
+  systemctl restart v2ray || continue
   sleep 2
 }
 
