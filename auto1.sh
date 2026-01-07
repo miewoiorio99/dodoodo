@@ -5,7 +5,7 @@ set -euo pipefail
 LIST_URL="https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_BASE64.txt"
 RAW_FILE="/tmp/v2ray_raw.txt"
 DECODED_FILE="/tmp/v2ray_decoded.txt"
-CONFIG="/usr/local/etc/v2ray/config.json"
+CONFIG="/root/v2ray/config.json"
 LOG_FILE="/tmp/v2ray.log"
 PROXY_LIST="/tmp/proxies.txt"
 
