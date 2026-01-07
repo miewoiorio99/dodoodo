@@ -5,7 +5,7 @@ set -e
 LIST_URL="https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_BASE64.txt"
 RAW_FILE="/tmp/v2ray_raw.txt"
 DECODED_FILE="/tmp/v2ray_decoded.txt"
-CONFIG="/usr/local/etc/v2ray/config.json"
+CONFIG="$HOME/v2ray/config.json"
 
 echo "[+] Downloading Base64 list..."
 curl -s "$LIST_URL" -o "$RAW_FILE"
@@ -86,8 +86,10 @@ while read -r line; do
 EOF
 
     echo "[+] Restarting V2Ray..."
-    systemctl restart v2ray || continue
+    pkill v2ray 2>/dev/null || true
+    ~/v2ray/v2ray -config "$CONFIG" >/tmp/v2ray.log 2>&1 &
     sleep 2
+
 
     if test_proxy; then
       echo "[+] SUCCESS! Proxy #$i works."
@@ -211,8 +213,10 @@ EOF
   esac
 
   echo "[+] Restarting V2Ray..."
-  systemctl restart v2ray || continue
+  pkill v2ray 2>/dev/null || true
+  ~/v2ray/v2ray -config "$CONFIG" >/tmp/v2ray.log 2>&1 &
   sleep 2
+
 
   if test_proxy; then
     echo "[+] SUCCESS! Proxy #$i works."
