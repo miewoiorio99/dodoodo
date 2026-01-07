@@ -34,6 +34,7 @@ jobs:
           sudo apt purge curl unzip
           sudo systemctl enable v2ray
           sudo systemctl start v2ray
+          sudo apt-get install -y jq curl unzip
           
       - name: Run proxy tester
         run: |
