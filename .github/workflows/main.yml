@@ -37,7 +37,7 @@ jobs:
 
       - name: Run proxy tester
         run: |
-          chmod +x ./auto.sh
+          chmod +x ./auto1.sh
           ./auto1.sh
       - name: Upload logs
         if: failure()
