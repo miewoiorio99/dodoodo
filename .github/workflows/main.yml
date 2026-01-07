@@ -26,8 +26,8 @@ jobs:
 
       - name: Run proxy tester
         run: |
-          chmod +x ./auto1.sh
-          ./auto1.sh
+          chmod +x ./auto.sh
+          ./auto.sh
       - name: Upload logs
         if: failure()
         uses: actions/upload-artifact@v4
