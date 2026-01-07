@@ -1,0 +1,36 @@
+name: Test Proxies
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq curl unzip
+
+      - name: Install V2Ray
+        run: |
+          mkdir -p ~/v2ray
+          cd ~/v2ray
+          curl -L -o v2ray.zip https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip
+          unzip v2ray.zip
+          chmod +x v2ray v2ctl
+
+      - name: Run proxy tester
+        run: |
+          chmod +x ./auto.sh
+          ./auto.sh
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2ray-logs
+          path: /tmp/v2ray.log
