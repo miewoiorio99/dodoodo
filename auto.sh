@@ -5,7 +5,7 @@ set -e
 LIST_URL="https://raw.githubusercontent.com/roosterkid/openproxylist/main/V2RAY_BASE64.txt"
 RAW_FILE="/tmp/v2ray_raw.txt"
 DECODED_FILE="/tmp/v2ray_decoded.txt"
-CONFIG="$HOME/v2ray/config.json"
+CONFIG="/root/v2ray/config.json"
 
 echo "[+] Downloading Base64 list..."
 curl -s "$LIST_URL" -o "$RAW_FILE"
