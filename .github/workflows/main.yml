@@ -29,12 +29,9 @@ jobs:
         shell: bash
       - name: Install V2Ray
         run: |
-          mkdir -p ~/v2ray
-          cd ~/v2ray
-          curl -L -o v2ray.zip https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip
-          unzip v2ray.zip
-          chmod +x v2ray
-
+          curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/main/install-release.sh
+          sudo bash install-release.sh
+          
       - name: Run proxy tester
         run: |
           chmod +x ./auto.sh
