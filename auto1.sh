@@ -29,7 +29,7 @@ fi
 echo "[+] Found $(wc -l < "$PROXY_LIST") proxies"
 
 test_proxy() {
-  curl --socks5 127.0.0.1:1080 -m 6 -sS https://www.google.com >/dev/null 2>&1
+  curl --socks5 127.0.0.1:9079 -m 6 -sS https://www.google.com >/dev/null 2>&1
 }
 
 restart_v2ray() {
@@ -87,7 +87,7 @@ while read -r line; do
     cat > "$CONFIG" <<EOF
 {
   "inbounds": [
-    { "port": 1080, "listen": "127.0.0.1", "protocol": "socks", "settings": { "udp": true } }
+    { "port": 9079, "listen": "127.0.0.1", "protocol": "socks", "settings": { "udp": true } }
   ],
   "outbounds": [
     {
@@ -158,7 +158,7 @@ EOF
       cat > "$CONFIG" <<EOF
 {
   "inbounds": [
-    { "port": 1080, "listen": "127.0.0.1", "protocol": "socks", "settings": { "udp": true } }
+    { "port": 9079, "listen": "127.0.0.1", "protocol": "socks", "settings": { "udp": true } }
   ],
   "outbounds": [
     {
@@ -264,7 +264,7 @@ JSON
       cat > "$CONFIG" <<EOF
 {
   "inbounds": [
-    { "port": 1080, "listen": "127.0.0.1", "protocol": "socks", "settings": { "udp": true } }
+    { "port": 9079, "listen": "127.0.0.1", "protocol": "socks", "settings": { "udp": true } }
   ],
   "outbounds": [
     {
@@ -356,7 +356,7 @@ JSON
       cat > "$CONFIG" <<EOF
 {
   "inbounds": [
-    { "port": 1080, "listen": "127.0.0.1", "protocol": "socks", "settings": { "udp": true } }
+    { "port": 9079, "listen": "127.0.0.1", "protocol": "socks", "settings": { "udp": true } }
   ],
   "outbounds": [
     {
